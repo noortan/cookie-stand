@@ -1,5 +1,9 @@
 'use strict';
+<<<<<<< HEAD
 /*let time = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+=======
+let time = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+>>>>>>> main
 let shop1 = {
     name: 'Seattle',
     MinCust: 23,
@@ -203,6 +207,7 @@ let shop5 = {
 }
 shop5.amounts()
 console.log(shop5.cosTom);
+<<<<<<< HEAD
 shop5.firstResut();*/
 let timee = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];
 let locationshop = [];
@@ -344,3 +349,6 @@ for (let i = 0; i < locationshop.length; i++) {
 
 }
 tabelfooter();
+=======
+shop5.firstResut();
+>>>>>>> main
