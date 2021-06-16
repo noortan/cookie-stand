@@ -3,6 +3,10 @@
 let timee = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];
 
 
+
+let kittenProfiles = document.getElementById('kittenProfiles');
+let catForm = document.getElementById('catForm');
+
 function Shopcookies(name, minCust, maxCust, AvgCookieSale, time, costom, avecookies, total) {
     this.name = name;
     this.minCust = minCust;
