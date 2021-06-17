@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
     
 </head>
-<body style="background : #77ACF1">
+<body>
     <header>
-        <h1> sales Salmon Cookies </h1>
-        
-           <h2>
-            <a href="index.html">Home Page</a>  
-           </h2>    
-            
-        
+        <h1> Sales Salmon Cookies </h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home Page</a>  </li>
+            </ul>
+        </nav>
     </header> 
     <main>
-        <div id ="purchased">
+        <div class="salesimg">
+            <img src="http://saulfein.github.io/cookie-stand/img/salmon.png" alt="">
+        </div>
+
+        <form id="SalmonCookiesform">
+            
+            <fieldset>
+                <legend> New location </legend>
+                <label for="namec"> Name of Contry </label>
+                <input type="text" name="namec" id="nameco"/>
+                <br/>
+                <br/>
+                <label for="min"> Minimum :</label>
+                <input type="number" name="min" id="minn"/>
+                <label for="max"> Maximum : </label>
+                <input type="number" name="max" id="maxn"/>
+                <br> 
+                <br>
+                <label for="avg"> Average per hour </label>
+                <input type="number" name="avg" id="avgh"/>
+                <br>
+                <br>
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+        <div id ="cookie">
 
         </div>
 
         
 
     </main>
-    <footer>
+    <footer class="myfooter">
+        <p>Contact:</p>
+        <a href="#" class="linkfooter"><img src="image/fb-icon.png" alt=""></a>
+        <a href="#" class="linkfooter"><img src="image/mail-icon.png" alt=""></a>
+        <a href="#" class="linkfooter"><img src="image/twit-icon.png" alt=""></a>
+        &COPY;<P>Salmon Cookies made by noortan abu darwesh </P>
         <script src="app.js"></script>
+
     </footer>
     
 </body>
