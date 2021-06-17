@@ -1,4 +1,3 @@
-
 'use strict';
 
 // array of Hours 
@@ -72,69 +71,62 @@ SalmonCookies.prototype.ClacCusPerHour = function () {
 function CreatHeaderOfTable()
 {
     
-    table.setAttribute('id','tableInfo');
-    parent.appendChild(table);
+  
     let tr=document.createElement('tr');
     table.appendChild(tr);
-    
+    let th=document.createElement( 'th') ;
+    tr.appendChild( th) ;
+    th.textContent="" ;
     for (let i = 0; i < Hours.length+2; i++) {
-        let th=document.createElement('th');
-        tr.appendChild(th);
-        if(i==0)
-        {
-            th.textContent='Location';
-        }
-        else if(i==15)
-        {
-            th.textContent='Daily Location total';
-        }
-        else
-        {
-            th.textContent=Hours[i-1];
-        }
-        
-        
-    }
+
+        let th1=document.createElement( 'th') ;
+        tr.appendChild( th1) ;
+        th1.textContent=Hours[ i] ;
+     }
+     let th2=document.createElement( 'th') ;
+     tr.appendChild( th2) ;
+     th2.textContent= 'daly location total ' ;      
 
 
 }
+
+
 CreatHeaderOfTable();
 
 SalmonCookies.prototype.render=function()
 {
+    
     let tr=document.createElement('tr');
     table.appendChild(tr);
-    for (let i = 0; i < this.RenderingFormat.length; i++) {
-        let td=document.createElement('td');
-        tr.appendChild(td);
-        td.textContent=this.RenderingFormat[i];
-        
-    }
-    
+    let th=document.createElement( 'th') ;
+    tr.appendChild( th) ;
+    th.textContent="" ;
+    for (let i = 0; i < Hours.length+2; i++) {
+
+        let th1=document.createElement( 'th') ;
+        tr.appendChild( th1) ;
+        th1.textContent=customerPerHours[ i] ;
+     }
+     let th2=document.createElement( 'th') ;
+     tr.appendChild( th2) ;
+     th2.textContent= this.TotalForSingleHour  ;      
 }
 function lastRowInTable()
 {
     let tr=document.createElement('tr');
-    tr.setAttribute('id','LastRow');
     table.appendChild(tr);
-    
+    let th=document.createElement( 'th') ;
+    tr.appendChild( th) ;
+    th.textContent="" ;
     for (let i = 0; i < Hours.length+2; i++) {
-        let td=document.createElement('td');
-        tr.appendChild(td);
-        if(i==0)
-        {
-            td.textContent='Totals'
-        }
-        else if(i==15)
-        {
-            td.textContent=TotalSumation();
-        }
-        else
-        {
-            td.textContent=TotalOfSingleHourInAllLocation[i-1];
-        }
-        
-    }
+
+        let th1=document.createElement( 'th') ;
+        tr.appendChild( th1) ;
+        th1.textContent=customerPerHours[ i] ;
+     }
+     let th2=document.createElement( 'th') ;
+     tr.appendChild( th2) ;
+     th2.textContent= this.TotalForSingleHour  ; 
 }
 function AddArray(array) {
     for (let i = 0; i < array.length; i++) {
