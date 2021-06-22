@@ -39,30 +39,32 @@ SalmonCookies.prototype.ClacCusPerHour = function () {
 
     for (let i = 0; i < Hours.length; i++) {
         RandomNumber = Math.floor((Math.random() * (this.max - this.min) + this.min) * this.avg);
-        this.customerPerHours[i] = RandomNumber;
+        // this.customerPerHours[i] = RandomNumber;
+        this.customerPerHours.push(RandomNumber)
         this.TotalForSingleHour+=this.customerPerHours[i];
        
 
     }
+    console.log(this.customerPerHours)
   
     
-    for (let i = 0; i < Hours.length+2; i++) {
+    //for (let i = 0; i < Hours.length+2; i++) {
        
-        if(i==0)
-        {
-            this.RenderingFormat.push(this.name);
-        }
-        else if (i==15)
-        {
-            this.RenderingFormat.push(this.TotalForSingleHour)
-        }
-        else
-        {
-            this.RenderingFormat.push(this.customerPerHours[0+1]);
-        }
-    }
+    //     if(i==0)
+    //     {
+    //         this.RenderingFormat.push(this.name);
+    //     }
+    //     else if (i==15)
+    //     {
+    //         this.RenderingFormat.push(this.TotalForSingleHour)
+    //     }
+    //     else
+    //     {
+    //         this.RenderingFormat.push(this.customerPerHours[0+1]);
+    //     }
+    // }
   
-    AddArray(this.customerPerHours)
+   // AddArray(this.customerPerHours)
    
     
 
@@ -71,62 +73,97 @@ SalmonCookies.prototype.ClacCusPerHour = function () {
 function CreatHeaderOfTable()
 {
     
-  
+    table.setAttribute('id','tableInfo');
+    parent.appendChild(table);
     let tr=document.createElement('tr');
     table.appendChild(tr);
-    let th=document.createElement( 'th') ;
-    tr.appendChild( th) ;
-    th.textContent="" ;
+    
     for (let i = 0; i < Hours.length+2; i++) {
-
-        let th1=document.createElement( 'th') ;
-        tr.appendChild( th1) ;
-        th1.textContent=Hours[ i] ;
-     }
-     let th2=document.createElement( 'th') ;
-     tr.appendChild( th2) ;
-     th2.textContent= 'daly location total ' ;      
+        let th=document.createElement('th');
+        tr.appendChild(th);
+        if(i==0)
+        {
+            th.textContent='Location';
+        }
+        else if(i==15)
+        {
+            th.textContent='Daily Total';
+        }
+        else
+        {
+            th.textContent=Hours[i-1];
+        }
+        
+        
+    }
 
 
 }
-
-
 CreatHeaderOfTable();
 
 SalmonCookies.prototype.render=function()
 {
-    
+    this.ClacCusPerHour()
     let tr=document.createElement('tr');
     table.appendChild(tr);
-    let th=document.createElement( 'th') ;
-    tr.appendChild( th) ;
-    th.textContent="" ;
-    for (let i = 0; i < Hours.length+2; i++) {
-
-        let th1=document.createElement( 'th') ;
-        tr.appendChild( th1) ;
-        th1.textContent=customerPerHours[ i] ;
-     }
-     let th2=document.createElement( 'th') ;
-     tr.appendChild( th2) ;
-     th2.textContent= this.TotalForSingleHour  ;      
+    let th = document.createElement('th')
+    th.textContent = this.name;
+    tr.appendChild(th);
+    for (let i = 0; i < this.customerPerHours.length; i++) {
+        let td=document.createElement('td');
+        tr.appendChild(td);
+        td.textContent=this.customerPerHours[i];
+        
+    }
+    let th2 = document.createElement('th');
+    th2.textContent = this.TotalForSingleHour;
+    tr.appendChild(th2)
+    
+    
 }
 function lastRowInTable()
 {
     let tr=document.createElement('tr');
+    tr.setAttribute('id','LastRow');
     table.appendChild(tr);
-    let th=document.createElement( 'th') ;
-    tr.appendChild( th) ;
-    th.textContent="" ;
-    for (let i = 0; i < Hours.length+2; i++) {
+    
+    // for (let i = 0; i < Hours.length+2; i++) {
+    //     let td=document.createElement('td');
+    //     tr.appendChild(td);
+    //     if(i==0)
+    //     {
+    //         td.textContent='Totals'
+    //     }
+    //     else if(i==15)
+    //     {
+    //         td.textContent=TotalSumation();
+    //     }
+    //     else
+    //     {
+    //         td.textContent=TotalOfSingleHourInAllLocation[i-1];
+    //     }
+        
+    // }
+    let th = document.createElement('th');
+    th.textContent = "Totals"
+    tr.appendChild(th)
 
-        let th1=document.createElement( 'th') ;
-        tr.appendChild( th1) ;
-        th1.textContent=customerPerHours[ i] ;
-     }
-     let th2=document.createElement( 'th') ;
-     tr.appendChild( th2) ;
-     th2.textContent= this.TotalForSingleHour  ; 
+    for (let i = 0; i < Hours.length; i++) {
+        let total = 0;
+        for (let j = 0; j < AllLocations.length; j++) {
+            // console.log(AllLocations[0])
+            let result= AllLocations[j].customerPerHours[i];
+            total += result;
+        }
+        let td = document.createElement('td');
+        td.textContent = total;
+        tr.appendChild(td);
+        TotalOfTotals += total;
+    }
+    let th2 = document.createElement('th');
+    th2.textContent = TotalOfTotals
+    tr.appendChild(th2)
+
 }
 function AddArray(array) {
     for (let i = 0; i < array.length; i++) {
@@ -152,10 +189,11 @@ Tokyo=new SalmonCookies('Tokyo',3,24,1.2);
 Dubai=new SalmonCookies('Dubai',11,38,3.7);
 Paris=new SalmonCookies('Paris',20,38,2.3);
 Lima=new SalmonCookies('Lima',2,16,4.6);
+// Seattle.render() ;
 
 for (let i = 0; i < AllLocations.length; i++) {
     
-    AllLocations[i].ClacCusPerHour();
+    // AllLocations[i].ClacCusPerHour();
     AllLocations[i].render();
     
 }
@@ -180,7 +218,7 @@ function addStore(event)
 
     let NewStore= new SalmonCookies(name,min,max,avg);
 
-    NewStore.ClacCusPerHour();
+    // NewStore.ClacCusPerHour();
     NewStore.render();
     lastRowInTable();
     

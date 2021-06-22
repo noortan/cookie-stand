@@ -1,64 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+<html>
 
-    
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Salmon Jones Cookie Store - Sales Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e9a11bffd6.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1> Sales Salmon Cookies </h1>
+    <header class="top-head">
+        <h1>Sales</h1>
+    </header>
+    <main>
         <nav>
             <ul>
-                <li><a href="index.html">Home Page</a>  </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="">About</a></li>
             </ul>
         </nav>
-    </header> 
-    <main>
-        <div class="salesimg">
-            <img src="http://saulfein.github.io/cookie-stand/img/salmon.png" alt="">
-        </div>
+        <form id="AddStore">
+            <fieldset id="ContainerFieldset">
+                <legend>Add a New Store</legend>
 
-        <form id="SalmonCookiesform">
-            
-            <fieldset>
-                <legend> New location </legend>
-                <label for="namec"> Name of Contry </label>
-                <input type="text" name="namec" id="nameco"/>
-                <br/>
-                <br/>
-                <label for="min"> Minimum :</label>
-                <input type="number" name="min" id="minn"/>
-                <label for="max"> Maximum : </label>
-                <input type="number" name="max" id="maxn"/>
-                <br> 
-                <br>
-                <label for="avg"> Average per hour </label>
-                <input type="number" name="avg" id="avgh"/>
+                <label for="location">Store Location: </label>
+                <input type="text" name="location" id="location">
+
+                <label for="minCust">Minimum Customers/Hour: </label>
+                <input type="number" name="minCust" id="minCust">
                 <br>
                 <br>
-                <input type="submit" value="submit">
+                <label for="maxCust">Maximum Customers/Hour: </label>
+                <input type="number" name="maxCust" id="maxCust">
+
+                <label for="cookiesPercustomer">Cookies/Sale</label>
+                <input type="number" name="cookiesPercustomer" id="cookiesPercustomer">
+                <br><br>
+                <input type="submit" value="ADD  Store">
+
+
             </fieldset>
         </form>
-        <div id ="cookie">
 
+        <div id="cookies">
+            
         </div>
-
-        
-
     </main>
-    <footer class="myfooter">
-        <p>Contact:</p>
-        
-   
-        &COPY;<P>Salmon Cookies made by noortan abu darwesh </P>
-        
 
-    </footer>
+
     <script src="app.js"></script>
 </body>
+
 </html>

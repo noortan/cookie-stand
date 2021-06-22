@@ -138,3 +138,8 @@ footer article p
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 25px;
 }
+
+td,th{
+    width: 60px;
+    border: 1px black solid;
+}
